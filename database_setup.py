@@ -21,6 +21,8 @@ def serialize(self):
 	'id': self.id,
     }
 
+
+
 class MenuItem(Base):
     __tablename__ = 'menu_item'
 
