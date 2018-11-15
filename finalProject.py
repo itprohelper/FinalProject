@@ -115,7 +115,8 @@ def newMenuItem(restaurant_id):
     '/restaurant/<int:restaurant_id>/menu/<int:menu_id>/edit/',
     methods=['GET', 'POST'])
 def editMenuItem(restaurant_id, menu_id):
-    editedItem = session.query(MenuItem).filter_by(id=menu_id).first()
+    editedItem = session.query(MenuItem).filter_by(id=menu_id).all()
+    restaurant = session.query(Restaurant).filter_by(id=restaurant_id).one()
     if request.method == 'POST':
         if request.form['name']:
             editedItem.name = request.form['name']
